@@ -1,5 +1,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import Button from "@/Components/PrimaryButton";
 import { Head } from '@inertiajs/react';
+import { Link } from "@inertiajs/inertia-react";
 
 export default function Index({ auth, blogs }) {
     return (
@@ -10,6 +12,11 @@ export default function Index({ auth, blogs }) {
 
             {/* 一覧表示 */}
             <div className="p-6 bg-white border-b border-gray-200"> 
+                <div>
+                    <Link href={route("blog.create")}>
+                        <Button type="button">新規作成</Button>
+                    </Link>
+                </div>
                 <table>
                     <thead>
                         <tr>
