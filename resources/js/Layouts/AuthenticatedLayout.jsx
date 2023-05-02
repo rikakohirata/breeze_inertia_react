@@ -24,7 +24,7 @@ export default function Authenticated({ user, header, children }) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
                                 </NavLink>
-                                <NavLink href={route("blog.index")} active={route().current("blog.index")}>  {/* Blogリンクを表示 */}
+                                <NavLink href={route('blog.index')} active={route().current('blog.index')}>  {/* Blogリンクを表示 */}
                                     Blog
                                 </NavLink>
                             </div>
