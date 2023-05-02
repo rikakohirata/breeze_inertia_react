@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('blogs', function (Blueprint $table) {
+            $table->comment('ブログテーブル');
+
             $table->id();
+            $table->string('title')->comment('タイトル');
+            $table->text('content')->comment('コンテンツ');
             $table->timestamps();
         });
     }
