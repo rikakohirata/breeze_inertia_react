@@ -35,4 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+// Breezeをインストールしたことで追加されるルーティング情報
 require __DIR__.'/auth.php';

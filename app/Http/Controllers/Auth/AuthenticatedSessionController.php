@@ -15,7 +15,7 @@ use Inertia\Response;
 class AuthenticatedSessionController extends Controller
 {
     /**
-     * Display the login view.
+     * Display the login view. ログイン画面
      */
     public function create(): Response
     {
@@ -26,7 +26,7 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Handle an incoming authentication request.
+     * Handle an incoming authentication request. POSTリクエストの処理
      */
     public function store(LoginRequest $request): RedirectResponse
     {

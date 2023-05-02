@@ -7,6 +7,14 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 
+/**
+ * Loginコンポーネント
+ * @param {*} param0 
+ * @returns 
+ */
+
+// 引数に、input要素に入力した値を保存する変数の初期値をオブジェクトで指定
+// dataの中にemail, password, remerberの値が保存されている
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
