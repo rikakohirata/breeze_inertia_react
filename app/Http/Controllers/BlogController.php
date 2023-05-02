@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
+use Inertia\Inertia;
 
 class BlogController extends Controller
 {
@@ -13,7 +14,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Index',['blogs' => Blog::all()]);
+
     }
 
     /**
