@@ -1,8 +1,15 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import PrimaryButton from '@/Components/PrimaryButton';  // ボタン
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, useForm  } from '@inertiajs/react';
 
 export default function Index({ auth, blogs }) {
+    const { delete: destroy } = useForm();
+    const handleDelete = (id) => {
+        destroy(route("blog.destroy", id), {
+            preserveScroll: true,   // データ削除後、削除ボタンを押した場所に戻る
+        });
+    };
+
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -25,6 +32,7 @@ export default function Index({ auth, blogs }) {
                                     <tr>
                                         <th>タイトル</th>
                                         <th>コンテンツ</th>
+                                        <th>削除</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -36,6 +44,13 @@ export default function Index({ auth, blogs }) {
                                                 </td>
                                                 <td className="border px-4 py-2">
                                                     {blog.content}
+                                                </td>
+                                                <td className="border px-4 py-2">
+                                                    <button className="px-4 py-2 bg-red-500 text-white rounded-lg text-xs font-semibold"
+                                                        onClick={() => handleDelete(blog.id)}
+                                                    >
+                                                        削除
+                                                    </button>
                                                 </td>
                                             </tr>
                                         );
