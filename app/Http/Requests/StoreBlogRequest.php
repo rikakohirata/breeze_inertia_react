@@ -11,7 +11,8 @@ class StoreBlogRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        // エラー「This action is unauthorized」の対策
+        return true;
     }
 
     /**
