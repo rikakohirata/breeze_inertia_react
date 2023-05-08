@@ -32,6 +32,7 @@ export default function Index({ auth, blogs }) {
                                     <tr>
                                         <th>タイトル</th>
                                         <th>コンテンツ</th>
+                                        <th>更新</th>
                                         <th>削除</th>
                                     </tr>
                                 </thead>
@@ -44,6 +45,13 @@ export default function Index({ auth, blogs }) {
                                                 </td>
                                                 <td className="border px-4 py-2">
                                                     {blog.content}
+                                                </td>
+                                                <td className="border px-4 py-2">
+                                                    <Link href={route("blog.edit", blog.id)}>
+                                                        <button className="px-4 py-2 bg-green-500 text-white rounded-lg text-xs font-semibold">
+                                                            更新
+                                                        </button>
+                                                    </Link>
                                                 </td>
                                                 <td className="border px-4 py-2">
                                                     <button className="px-4 py-2 bg-red-500 text-white rounded-lg text-xs font-semibold"
