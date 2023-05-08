@@ -39,7 +39,9 @@ Route::middleware('auth')->group(function () {
         ->names(['index'=>'blog.index',
                 'create' => 'blog.create',
                 'store' => 'blog.store',
-                'destroy' => 'blog.destroy'
+                'destroy' => 'blog.destroy',
+                'edit' => 'blog.edit',
+                'update' => 'blog.update',
             ]);
 });
 
