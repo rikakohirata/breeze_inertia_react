@@ -54,7 +54,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return Inertia::render('Blog/Edit',['blog' => $blog]);
     }
 
     /**
@@ -62,7 +62,14 @@ class BlogController extends Controller
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
-        //
+        $request->validate([
+            'title' => ['required'],
+            'content' => ['required']
+        ]);
+    
+        $blog->update($request->all());
+    
+        return redirect()->route('blog.index');
     }
 
     /**
