@@ -37,7 +37,8 @@ Route::middleware('auth')->group(function () {
     // ブログ
     Route::resource('/blogs', BlogController::class)
         ->names(['index'=>'blog.index',
-                'create' => 'blog.create']);
+                'create' => 'blog.create',
+                'store' => 'blog.store']);
 });
 
 
