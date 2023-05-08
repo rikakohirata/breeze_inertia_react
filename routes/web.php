@@ -35,7 +35,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     // ブログ
-    Route::get('/blogs', [BlogController::class, 'index'])->name('blog.index');
+    Route::resource('/blogs', BlogController::class)
+        ->names(['index'=>'blog.index',
+                'create' => 'blog.create']);
 });
 
 
