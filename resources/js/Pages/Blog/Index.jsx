@@ -1,7 +1,6 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import Button from "@/Components/PrimaryButton";  // Buttonコンポーネント
-import { Head } from '@inertiajs/react';
-import { Link } from "@inertiajs/inertia-react";  // inertia-reactのLink
+import PrimaryButton from '@/Components/PrimaryButton';  // ボタン
+import { Head, Link } from '@inertiajs/react';
 
 export default function Index({ auth, blogs }) {
     return (
@@ -18,7 +17,7 @@ export default function Index({ auth, blogs }) {
                         <div className="p-6 bg-white border-b border-gray-200"> 
                             <div>
                                 <Link href={route("blog.create")}>
-                                    <Button type="button">新規作成</Button>
+                                    <PrimaryButton type="button">新規作成</PrimaryButton>
                                 </Link>
                             </div>
                             <table>
