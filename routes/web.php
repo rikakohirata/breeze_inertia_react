@@ -46,5 +46,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Breezeをインストールしたことで追加されるルーティング情報
+// Laravel Breezeをインストールしたことで追加されるルーティング情報
+// ログインなど認証に関する機能（参照：auth.php）
 require __DIR__.'/auth.php';

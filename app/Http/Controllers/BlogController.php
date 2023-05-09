@@ -10,16 +10,18 @@ use Inertia\Inertia;
 class BlogController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * 一覧画面を表示
      */
     public function index()
     {
+        // 第一引数にコンポーネント、第二引数にプロパティ配列を渡す
+        // ビューにblogテーブルの値を渡す
         return Inertia::render('Blog/Index',['blogs' => Blog::all()]);
 
     }
 
     /**
-     * Show the form for creating a new resource.
+     * 新規登録フォームを表示
      */
     public function create()
     {
@@ -27,7 +29,7 @@ class BlogController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * DBへ登録処理
      */
     public function store(StoreBlogRequest $request)
     {
@@ -41,16 +43,13 @@ class BlogController extends Controller
         return redirect()->route('blog.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Blog $blog)
-    {
-        //
-    }
+    // public function show(Blog $blog)
+    // {
+    //     
+    // }
 
     /**
-     * Show the form for editing the specified resource.
+     * 更新フォームを表示
      */
     public function edit(Blog $blog)
     {
@@ -58,7 +57,7 @@ class BlogController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * DBの更新処理
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
@@ -73,12 +72,12 @@ class BlogController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * DBの削除処理
      */
     public function destroy(Blog $blog)
     {
         $blog->delete();
-
+        
         return redirect()->route('blog.index');
     }
 }

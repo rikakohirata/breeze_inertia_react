@@ -15,10 +15,12 @@ use Inertia\Response;
 class AuthenticatedSessionController extends Controller
 {
     /**
-     * Display the login view. ログイン画面
+     * ログイン画面を表示
      */
     public function create(): Response
     {
+        // Inertia::render関数
+        // 第一引数にルート、第二引数にパラメータを指定
         return Inertia::render('Auth/Login', [
             'canResetPassword' => Route::has('password.request'),
             'status' => session('status'),
@@ -26,7 +28,7 @@ class AuthenticatedSessionController extends Controller
     }
 
     /**
-     * Handle an incoming authentication request. POSTリクエストの処理
+     * ログイン処理を実行
      */
     public function store(LoginRequest $request): RedirectResponse
     {
@@ -34,6 +36,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // RouteServiceProvider::HOMEで指定された場所にリダイレクト
+        // リダイレクト先は、RouteServiceProviderの中で/dashboardに設定されている
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 

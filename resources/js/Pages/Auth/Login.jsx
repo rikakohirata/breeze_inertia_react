@@ -5,16 +5,22 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
+
+// Head     ヘッダー情報をレンダリングする
+// Link     XHRリクエストを行う
+// useForm  フォームの処理を行う
 import { Head, Link, useForm } from '@inertiajs/react';
 
 /**
  * Loginコンポーネント
+ * ログインの入力フォーム～POSTリクエストまでの処理
  * @param {*} param0 
  * @returns 
  */
 
 // 引数に、input要素に入力した値を保存する変数の初期値をオブジェクトで指定
 // dataの中にemail, password, remerberの値が保存されている
+// processingは、処理中の場合にボタンがクリックできないようする
 export default function Login({ status, canResetPassword }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',
@@ -22,12 +28,15 @@ export default function Login({ status, canResetPassword }) {
         remember: false,
     });
 
+    // useEffect Hook
+    // Loginコンポーネントがアンマウントされる時、入力フォームの値をuseFormで指定した初期値にリセットする
     useEffect(() => {
         return () => {
             reset('password');
         };
     }, []);
 
+    // submit関数のpost関数でルートを指定
     const submit = (e) => {
         e.preventDefault();
 
@@ -44,6 +53,10 @@ export default function Login({ status, canResetPassword }) {
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
 
+                    {/* valueにdate.emailを指定する
+                        onChangeイベントで入力する度にsetDataで値が更新される
+                        setDataは第一引数に更新を行う名前、第二引数には値を設定する
+                        setDataによって更新されたdataは、submit関数によって指定のルートに送信される */}
                     <TextInput
                         id="email"
                         type="email"
@@ -55,6 +68,7 @@ export default function Login({ status, canResetPassword }) {
                         onChange={(e) => setData('email', e.target.value)}
                     />
 
+                    {/* errorsに、バリデーションに失敗した場合のエラー情報が保存される */}
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 

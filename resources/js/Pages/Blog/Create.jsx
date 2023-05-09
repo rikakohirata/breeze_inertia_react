@@ -12,7 +12,8 @@ export default function Create({ auth }) {
     });
 
     const submit = (e) => {
-        e.preventDefault();   // ページのリロードを避ける
+        // ページのリロードを避ける
+        e.preventDefault();   
         post(route('blog.store'));
     };
 
