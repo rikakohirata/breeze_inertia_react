@@ -19,9 +19,9 @@ DBに登録があるユーザーのみログインすることができます。
 - vite 4.3.3
 - inertiajs/inertia-react 0.8.1
 - inertiajs/react 1.0.6
-- Laravel Breeze
 
 # 機能一覧
+- ログイン機能（Laravel Breeze）
 - 一覧機能
 - 登録機能
 - 更新機能
