@@ -43,10 +43,13 @@ class BlogController extends Controller
         return redirect()->route('blog.index');
     }
 
-    // public function show(Blog $blog)
-    // {
-    //     
-    // }
+    /**
+     * 詳細画面を表示
+     */
+    public function show(Blog $blog)
+    {
+        return Inertia::render('Blog/Show',['blog' => $blog]);
+    }
 
     /**
      * 更新フォームを表示
@@ -80,4 +83,5 @@ class BlogController extends Controller
         
         return redirect()->route('blog.index');
     }
+
 }
