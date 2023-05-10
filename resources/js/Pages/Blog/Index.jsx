@@ -4,7 +4,7 @@ import { Head, Link, useForm  } from '@inertiajs/react';
 
 // 引数blogsでコントローラで指定したパラメータを受け取る
 export default function Index({ auth, blogs }) {
-    console.log(useForm());
+
     // useFormのdeleteプロパティに新しい変数名としてdestroyを代入
     const { delete: destroy } = useForm();
     const handleDelete = (id) => {
@@ -40,6 +40,7 @@ export default function Index({ auth, blogs }) {
                                     <tr>
                                         <th>タイトル</th>
                                         <th>コンテンツ</th>
+                                        <th>詳細</th>
                                         <th>更新</th>
                                         <th>削除</th>
                                     </tr>
@@ -54,6 +55,15 @@ export default function Index({ auth, blogs }) {
                                                 </td>
                                                 <td className="border px-4 py-2">
                                                     {blog.content}
+                                                </td>
+                                                <td className="border px-4 py-2">
+                                                    {/* 詳細ボタン
+                                                        引数で指定したidのブログの詳細画面へ遷移する */}
+                                                    <Link href={route("blog.show", blog.id)}>
+                                                        <button className="px-4 py-2 bg-blue-500 text-white rounded-lg text-xs font-semibold">
+                                                            詳細
+                                                        </button>
+                                                    </Link>
                                                 </td>
                                                 <td className="border px-4 py-2">
                                                     {/* 更新ボタン
