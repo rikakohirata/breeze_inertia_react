@@ -19,7 +19,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): Response
     {
-        // Inertia::render関数
+        // Inertia::render関数は、レンダリング機能を使用し指定されたビューとデータを組み合わせたJSONレスポンスを返す
         // 第一引数にルート、第二引数にパラメータを指定
         return Inertia::render('Auth/Login', [
             'canResetPassword' => Route::has('password.request'),

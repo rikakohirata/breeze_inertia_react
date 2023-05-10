@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
  * ログインなど認証に関するルーティング
  */
 Route::middleware('guest')->group(function () {
+    // 新規ユーザ登録画面を表示
     Route::get('register', [RegisteredUserController::class, 'create'])
                 ->name('register');
 
+    // ユーザ登録処理を実行
     Route::post('register', [RegisteredUserController::class, 'store']);
 
     // ログイン画面を表示
