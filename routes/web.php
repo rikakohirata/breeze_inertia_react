@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
                 'destroy' => 'blog.destroy',
                 'edit' => 'blog.edit',
                 'update' => 'blog.update',
+                'show' => 'blog.show',
             ]);
 });
 
