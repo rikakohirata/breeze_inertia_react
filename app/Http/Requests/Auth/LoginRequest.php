@@ -33,7 +33,7 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * Attempt to authenticate the request's credentials.
+     * ログイン処理時このメソッドが呼び出される
      *
      * @throws \Illuminate\Validation\ValidationException
      */
@@ -76,10 +76,14 @@ class LoginRequest extends FormRequest
     }
 
     /**
-     * Get the rate limiting throttle key for the request.
+     * リクエストの識別子（キー）を生成する関数
      */
     public function throttleKey(): string
     {
+        // Str::lower($this->input('email'))で、入力されたメールアドレスを小文字に変換する
+        // Str::transliterateで、メールアドレスをASCII文字に変換する
+        // $this->ip()で、リクエストのIPアドレスを取得
+        // 変換されたメールアドレスとIPアドレスを結合した文字列を返す
         return Str::transliterate(Str::lower($this->input('email')).'|'.$this->ip());
     }
 }
