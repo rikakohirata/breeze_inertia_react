@@ -3,16 +3,15 @@
 - LaravelとReactを統合したInertia環境のプロジェクト構築
 - Laravel Breeze認証
 - Inertia環境のプロジェクトの基本的なCRUD操作
-
 <br />
 ブログを管理するアプリケーションです。
 <br />
 DBに登録があるユーザーのみログインすることができます。
 <br />
 <br />
-![image](https://user-images.githubusercontent.com/117156180/236746629-93804ba6-9d4c-461d-8e3a-3e056f6dc2bf.png)
-<br />
-<br />
+
+![image](https://github.com/rikakohirata/breeze_inertia_react/assets/117156180/7fddae81-cb67-4a06-97d8-51a54c41f37b)
+
 ![image](https://user-images.githubusercontent.com/117156180/236749197-ff7e382c-87db-4079-8b24-43c6c9ab850b.png)
 
 # 使用技術
